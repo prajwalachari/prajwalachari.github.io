@@ -1,0 +1,250 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Prajwalkumar Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: sticky identity rail on the left (name, status, contact), scrolling "datasheet" sections on the right. Collapses to one column on phones. */
+:root{
+  --bg:#E4E6E8;        /* graphite grey, cool bias */
+  --surface:#EEF0F1;
+  --ink:#1B1E22;
+  --muted:#565D66;
+  --line:#BFC4C9;
+  --accent:#34546F;    /* steel blue, used sparingly */
+  --accent-soft:#D3DCE4;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15171A;--surface:#1D2024;--ink:#E5E7EA;--muted:#9AA1AA;--line:#33373D;--accent:#93B4CF;--accent-soft:#26313B;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#15171A;--surface:#1D2024;--ink:#E5E7EA;--muted:#9AA1AA;--line:#33373D;--accent:#93B4CF;--accent-soft:#26313B;color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0;
+  padding-block:48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:300px minmax(0,1fr);gap:64px;align-items:start}
+
+/* rail */
+.rail{position:sticky;top:48px;display:flex;flex-direction:column;gap:28px}
+.name{font-family:var(--display);font-weight:700;font-size:2.6rem;line-height:1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.role{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin:10px 0 0;letter-spacing:.02em}
+.status{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.78rem;border:1px solid var(--line);background:var(--surface);padding:8px 12px;width:fit-content}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none}
+nav{display:flex;flex-direction:column;gap:2px}
+nav a{font-family:var(--mono);font-size:.82rem;text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:1px solid transparent;width:fit-content}
+nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.contact{display:flex;flex-direction:column;gap:10px;font-size:.9rem}
+.crow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.crow .k{font-family:var(--mono);font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;width:62px;flex:none}
+.crow .v{overflow-wrap:anywhere;min-width:0}
+.copy{font-family:var(--mono);font-size:.68rem;background:none;border:1px solid var(--line);color:var(--muted);padding:2px 8px;cursor:pointer}
+.copy:hover{color:var(--ink);border-color:var(--accent)}
+
+/* sections */
+main{display:flex;flex-direction:column;gap:56px;min-width:0}
+h2{font-family:var(--mono);font-weight:500;font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin:0 0 18px;display:flex;align-items:center;gap:14px}
+h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.lead{font-family:var(--display);font-size:1.7rem;line-height:1.3;font-weight:500;letter-spacing:-.01em;margin:0;text-wrap:pretty;max-width:34ch}
+.about p{margin:0 0 14px;max-width:62ch;color:var(--ink)}
+.about p.sub{color:var(--muted)}
+
+/* skills as a register map */
+.regs{border:1px solid var(--line);background:var(--surface)}
+.reg{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.reg:last-child{border-bottom:0}
+.reg dt{font-family:var(--mono);font-size:.78rem;color:var(--accent);font-weight:500}
+.reg dd{margin:0;font-size:.92rem}
+.regs{margin:0}
+
+/* projects as datasheet entries */
+.proj{border:1px solid var(--line);background:var(--surface);padding:26px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.proj+.proj{margin-top:20px}
+.ph{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+.proj h3{font-family:var(--display);font-size:1.45rem;line-height:1.2;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.tag{font-family:var(--mono);font-size:.72rem;color:var(--muted);border:1px solid var(--line);padding:2px 10px;white-space:nowrap}
+.proj p{margin:0;max-width:66ch}
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec div{background:var(--bg);padding:10px 14px;min-width:0}
+.spec b{display:block;font-family:var(--mono);font-weight:400;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:2px}
+.spec span{font-size:.88rem}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;font-family:var(--mono);font-size:.76rem}
+.flow span{border:1px solid var(--line);background:var(--bg);padding:8px 12px}
+.flow span.hot{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
+.flow i{font-style:normal;color:var(--muted);align-self:center}
+.pts{margin:0;padding-left:1.1rem;display:flex;flex-direction:column;gap:6px;max-width:66ch}
+.pts li::marker{color:var(--accent)}
+
+/* small tables */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{border:1px solid var(--line);background:var(--surface);padding:20px;min-width:0}
+.card h3{font-family:var(--display);font-size:1.1rem;margin:0 0 4px}
+.card .meta{font-family:var(--mono);font-size:.74rem;color:var(--muted);margin:0 0 10px}
+.card p{margin:0;font-size:.92rem}
+.edu{display:flex;flex-direction:column}
+.erow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 20px;padding:14px 0;border-bottom:1px solid var(--line)}
+.erow:first-child{padding-top:0}
+.erow b{font-weight:600}
+.erow .when{font-family:var(--mono);font-size:.78rem;color:var(--muted);text-align:right}
+.erow .d{grid-column:1/-1;color:var(--muted);font-size:.92rem}
+.links{display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--mono);font-size:.82rem;text-decoration:none;padding:10px 16px;border:1px solid var(--ink)}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.sec{border-color:var(--line);color:var(--muted)}
+.btn.sec:hover{border-color:var(--ink);background:none;color:var(--ink)}
+footer{font-family:var(--mono);font-size:.72rem;color:var(--muted);padding-top:8px}
+
+@media (max-width:860px){
+  body{padding-block:28px}
+  .wrap{grid-template-columns:minmax(0,1fr);gap:40px}
+  .rail{position:static}
+  nav{flex-direction:row;flex-wrap:wrap;gap:4px 18px}
+  .reg{grid-template-columns:minmax(0,1fr);gap:2px}
+  .proj{padding:18px}
+  .lead{font-size:1.4rem}
+}
+@media (prefers-reduced-motion:no-preference){nav a,.btn,.copy{transition:color .15s,border-color .15s,background .15s}}
+</style>
+
+<div class="wrap">
+  <aside class="rail">
+    <div>
+      <h1 class="name">Prajwal&shy;kumar</h1>
+      <p class="role">Embedded &amp; firmware engineer-in-training</p>
+    </div>
+    <div class="status"><span class="dot"></span>Open to embedded internships</div>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="contact">
+      <div class="crow"><span class="k">Base</span><span class="v">Bengaluru, Karnataka</span></div>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about" class="about">
+      <h2>About</h2>
+      <p class="lead">I turn circuit ideas into working products, from a first breadboard to a system that runs on its own.</p>
+      <p style="margin-top:22px">I am an Electronics and Communication undergraduate at PES University (B.Tech, 2027). I learn by reading manuals, debugging on the bench and iterating until it works. My favourite projects sit where electronics, code and machine learning meet.</p>
+      <p class="sub">Right now I am writing register-level C for an ARM Cortex-M3, and deploying a quantized vision model on an FPGA-based board for my capstone.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <article class="proj">
+        <div class="ph"><h3>PCB Assembly Fault Detection System</h3><span class="tag">Capstone</span></div>
+        <p>An automated inspection system that finds assembly faults on populated PCBs, replacing a manual visual check that varies between operators. It runs on the AMD Kria KV260, a Zynq UltraScale+ MPSoC with Arm Cortex-A53 cores and FPGA fabric.</p>
+        <div class="flow" aria-label="Pipeline">
+          <span>Board image</span><i>&rarr;</i><span>Pre-processing</span><i>&rarr;</i><span class="hot">INT8 YOLO on KV260</span><i>&rarr;</i><span>Faults boxed on output</span>
+        </div>
+        <ul class="pts">
+          <li>Trained a YOLO deep-learning detector in Python on a labelled PCB defect dataset.</li>
+          <li>Quantized the FP32 model to INT8 to cut model size and inference latency.</li>
+          <li>Deployed the INT8 model onto the board for real-time inference, marking each fault with a bounding box so it traces to a component and location.</li>
+        </ul>
+        <div class="spec">
+          <div><b>Platform</b><span>AMD Kria KV260</span></div>
+          <div><b>Model</b><span>YOLO, FP32 to INT8</span></div>
+          <div><b>Stack</b><span>Python, FPGA fabric</span></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="ph"><h3>Bare-Metal Peripheral Drivers on ARM Cortex-M3</h3><span class="tag">Ongoing</span></div>
+        <p>Register-level Embedded C for the NXP LPC1768 in Keil uVision. Pin-function, clock, timer and interrupt registers are configured straight from the datasheet.</p>
+        <ul class="pts">
+          <li>Brought up I2C, SPI, UART and CAN, using UART as a debug channel to trace live values.</li>
+          <li>ADC + LCD over I2C, and an ADXL accelerometer + LCD over I2C.</li>
+          <li>RFID-authenticated door access over UART.</li>
+          <li>GSM messaging with the SIM800L module, and a GPS navigation system.</li>
+          <li>CAN communication between two nodes: an ultrasonic sensor node sends distance as a CAN frame, and the receiver shows it on an LCD via I2C.</li>
+        </ul>
+        <div class="flow" aria-label="CAN link">
+          <span>Ultrasonic sensor</span><i>&rarr;</i><span>Node A</span><i>&rarr;</i><span class="hot">CAN frame</span><i>&rarr;</i><span>Node B</span><i>&rarr;</i><span>LCD via I2C</span>
+        </div>
+        <div class="spec">
+          <div><b>MCU</b><span>NXP LPC1768, Cortex-M3</span></div>
+          <div><b>Buses</b><span>I2C, SPI, UART, CAN</span></div>
+          <div><b>Toolchain</b><span>Keil uVision, Embedded C</span></div>
+        </div>
+      </article>
+
+      <article class="proj">
+        <div class="ph"><h3>Gesture-Controlled Rover</h3><span class="tag">ESP32</span></div>
+        <p>A two-node wireless system. A glove reads hand orientation from an MPU6050 IMU over I2C, and the rover converts the received commands into motor-driver output.</p>
+        <ul class="pts">
+          <li>Chose ESP-NOW over Wi-Fi so the two ESP32s link directly by MAC address, with no router, IP stack or handshake in the control path.</li>
+        </ul>
+        <div class="spec">
+          <div><b>Boards</b><span>2 x ESP32</span></div>
+          <div><b>Sensor</b><span>MPU6050 IMU, I2C</span></div>
+          <div><b>Link</b><span>ESP-NOW</span></div>
+        </div>
+      </article>
+
+      <div class="two" style="margin-top:20px">
+        <div class="card"><h3>Expense Monitor</h3><p class="meta">Python, pandas, Matplotlib</p><p>Aggregates transactions by category and time period and renders spending trends as charts.</p></div>
+        <div class="card"><h3>Car-Pooling System</h3><p class="meta">C, structs, file handling</p><p>GUI-based application that matches riders on overlapping routes.</p></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="regs">
+        <div class="reg"><dt>LANGUAGES</dt><dd>Embedded C, C, C++, Python</dd></div>
+        <div class="reg"><dt>BOARDS</dt><dd>ARM Cortex-M3 (NXP LPC1768), ESP32, Arduino Uno, Aries IoT, FPGA (Basys-3), AMD Kria KV260</dd></div>
+        <div class="reg"><dt>PROTOCOLS</dt><dd>I2C, SPI, UART, CAN, GPIO, ADC/DAC, PWM, ESP-NOW</dd></div>
+        <div class="reg"><dt>REAL-TIME</dt><dd>QNX Neutrino RTOS, QNX Momentics IDE</dd></div>
+        <div class="reg"><dt>TOOLS</dt><dd>Keil uVision, Cadence Virtuoso, Xilinx Vivado, MATLAB, Git, GitHub</dd></div>
+        <div class="reg"><dt>BENCH</dt><dd>Datasheet-driven bring-up, sensor interfacing (MPU6050 IMU), motor driver control, UART serial debug tracing, breadboard prototyping</dd></div>
+        <div class="reg"><dt>COURSEWORK</dt><dd>Embedded Systems and Robotics, QNX RTOS, Computer Organisation and Design (RISC-V), Digital Signal Processing, Control Systems, Analog Circuit Design</dd></div>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <div class="erow"><b>PES University, Electronic City Campus</b><span class="when">Oct 2023 – May 2027</span><span class="d">B.Tech, Electronics and Communication Engineering. CGPA 6.9/10.</span></div>
+        <div class="erow"><b>BeST PU College, Ballari</b><span class="when">2021 – 2023</span><span class="d">Pre-University Course, 90.8%.</span></div>
+        <div class="erow"><b>Morarji Desai Residential School, Koppal</b><span class="when">2020 – 2021</span><span class="d">SSLC, 98.08%.</span></div>
+        <div class="erow"><b>Workshop</b><span class="when">PES University</span><span class="d">5-day technical workshop on the NXP LPC1768 microcontroller.</span></div>
+      </div>
+      <p style="margin:16px 0 0;font-size:.9rem;color:var(--muted)">Languages: Kannada, English, Telugu, Hindi, German</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="margin:0 0 18px;max-width:56ch">I am looking for an embedded systems internship where I can build, test and ship alongside experienced engineers. Write to me or call.</p>
+      <div class="contact" style="max-width:480px;margin-bottom:22px">
+        <div class="crow"><span class="k">Email</span><span class="v" id="em">prajwalkumar3113@gmail.com</span><button class="copy" data-t="em" type="button">Copy</button></div>
+        <div class="crow"><span class="k">Phone</span><span class="v" id="ph">+91 99023 11309</span><button class="copy" data-t="ph" type="button">Copy</button></div>
+      </div>
+      <div class="links">
+        <a class="btn" href="https://www.linkedin.com/in/prajwalkumar18" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/prajwalachari" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+    <footer>Prajwalkumar &middot; Bengaluru &middot; 2026</footer>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.t), txt=el.textContent;
+    function done(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  });
+});
+</script>
+
+</body></html>
